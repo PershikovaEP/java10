@@ -69,7 +69,7 @@ public class RadioTest {
     @Test
     public void shouldChangeNextRadioStationWhenValueMiddle()  {
         Radio radio = new Radio();
-        radio.currentRadioStation = 5;
+        radio.setCurrentRadioStation(5);
 
         radio.next();
 
@@ -82,7 +82,7 @@ public class RadioTest {
     @Test
     public void shouldChangeNextRadioStationWhenValueOfTopBorder() {
         Radio radio = new Radio();
-        radio.currentRadioStation = 9;
+        radio.setCurrentRadioStation(9);
 
         radio.next();
 
@@ -95,7 +95,7 @@ public class RadioTest {
     @Test
     public void shouldChangePrevRadioStationWhenValueMiddle() {
         Radio radio = new Radio();
-        radio.currentRadioStation = 5;
+        radio.setCurrentRadioStation(5);
 
         radio.prev();
 
@@ -108,7 +108,7 @@ public class RadioTest {
     @Test
     public void shouldChangePrevRadioStationWhenValueOfBottomBorder() {
         Radio radio = new Radio();
-        radio.currentRadioStation = 0;
+        radio.setCurrentRadioStation(0);
 
         radio.prev();
 
@@ -181,7 +181,7 @@ public class RadioTest {
     @Test
     public void shouldIncreaseVolumeWhenValueMiddle() {
         Radio radio = new Radio();
-        radio.currentVolume = 5;
+        radio.setCurrentVolume(5);
 
         radio.increaseVolume();
 
@@ -194,7 +194,7 @@ public class RadioTest {
     @Test
     public void shouldNotIncreaseVolumeWhenValueTopBorder() {
         Radio radio = new Radio();
-        radio.currentVolume = 10;
+        radio.setCurrentVolume(10);
 
         radio.increaseVolume();
 
@@ -207,7 +207,7 @@ public class RadioTest {
     @Test
     public void shouldDecreaseVolumeWhenValueMiddle() {
         Radio radio = new Radio();
-        radio.currentVolume = 5;
+        radio.setCurrentVolume(5);
 
         radio.decreaseVolume();
 
@@ -220,7 +220,7 @@ public class RadioTest {
     @Test
     public void shouldNotDecreaseVolumeWhenValueBottomBorder() {
         Radio radio = new Radio();
-        radio.currentVolume = 0;
+        radio.setCurrentVolume(0);
 
         radio.decreaseVolume();
 
