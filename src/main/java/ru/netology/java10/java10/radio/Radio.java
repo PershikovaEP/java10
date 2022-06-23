@@ -1,5 +1,13 @@
 package ru.netology.java10.java10.radio;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class Radio {
     private int currentRadioStation;
     private int countRadioStation = 10;
@@ -7,14 +15,6 @@ public class Radio {
 
     public Radio(int countRadioStation) {
         this.countRadioStation = countRadioStation;
-    }
-
-    public Radio() {
-
-    }
-
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
     }
 
     public void setCurrentRadioStation(int newCurrentRadioStation) {
@@ -25,10 +25,6 @@ public class Radio {
             return;
         }
         currentRadioStation = newCurrentRadioStation;
-    }
-
-    public int getCountRadioStation() {
-        return countRadioStation;
     }
 
     public void next() {
@@ -45,10 +41,6 @@ public class Radio {
         } else {
             currentRadioStation = currentRadioStation - 1;
         }
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {

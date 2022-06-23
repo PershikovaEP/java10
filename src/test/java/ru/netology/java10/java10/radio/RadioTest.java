@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 
 public class RadioTest {
-
+    
     Radio radio = new Radio();
 
     @Test
@@ -65,6 +65,7 @@ public class RadioTest {
 
     @Test
     public void shouldInitFieldCountRadioStationWhenConstructorWithoutParameter() {
+        Radio radio = new Radio();
 
         assertEquals(10, radio.getCountRadioStation());
     }
@@ -102,19 +103,6 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldChangeNextRadioStationWhenValueOfTopBorderWhenConstructorWithParameter() {
-        Radio radio = new Radio(15);
-        radio.setCurrentRadioStation(14);
-
-        radio.next();
-
-        int expected = 0;
-        int actual = radio.getCurrentRadioStation();
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
     public void shouldChangePrevRadioStationWhenValueMiddle() {
         radio.setCurrentRadioStation(5);
 
@@ -139,24 +127,11 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldChangePrevRadioStationWhenValueOfBottomBorderWhenConstructorWithParameter() {
-        Radio radio = new Radio(15);
-        radio.setCurrentRadioStation(0);
-
-        radio.prev();
-
-        int expected = 14;
-        int actual = radio.getCurrentRadioStation();
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
     public void volumeMustBeInRangeWhenValueMiddle() {
 
-        radio.setCurrentVolume(50);
+        radio.setCurrentVolume(5);
 
-        int expected = 50;
+        int expected = 5;
         int actual = radio.getCurrentVolume();
 
         assertEquals(expected, actual);
