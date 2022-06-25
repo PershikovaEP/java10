@@ -5,10 +5,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 
 public class RadioTest {
+    
+    Radio radio = new Radio();
 
     @Test
     public void mustBeInRangeWhenValueMiddle() {
-        Radio radio = new Radio();
 
         radio.setCurrentRadioStation(7);
 
@@ -20,7 +21,6 @@ public class RadioTest {
 
     @Test
     public void mustBeInRangeWhenValueAboveBorder() {
-        Radio radio = new Radio();
 
         radio.setCurrentRadioStation(10);
 
@@ -32,7 +32,6 @@ public class RadioTest {
 
     @Test
     public void mustBeInRangeWhenValueUnderBorder() {
-        Radio radio = new Radio();
 
         radio.setCurrentRadioStation(-1);
 
@@ -44,7 +43,6 @@ public class RadioTest {
 
     @Test
     public void mustBeInRangeWhenValueTopBorder() {
-        Radio radio = new Radio();
 
         radio.setCurrentRadioStation(9);
 
@@ -56,7 +54,6 @@ public class RadioTest {
 
     @Test
     public void mustBeInRangeWhenValueBottomBorder() {
-        Radio radio = new Radio();
 
         radio.setCurrentRadioStation(0);
 
@@ -67,8 +64,25 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldInitFieldWhenConstructorRadioWithoutParameter() {
+
+        assertEquals(10, radio.getCountRadioStation());
+        assertEquals(9, radio.getMaxRadioStation());
+        assertEquals(0, radio.getMinRadioStation());
+        assertEquals(100, radio.getMaxVolume());
+        assertEquals(0, radio.getMinVolume());
+    }
+
+    @Test
+    public void shouldInitFieldWhenConstructorRadioWithParameter() {
+        Radio radio = new Radio(15);
+
+        assertEquals(15, radio.getCountRadioStation());
+        assertEquals(14, radio.getMaxRadioStation());
+    }
+
+    @Test
     public void shouldChangeNextRadioStationWhenValueMiddle()  {
-        Radio radio = new Radio();
         radio.setCurrentRadioStation(5);
 
         radio.next();
@@ -81,7 +95,6 @@ public class RadioTest {
 
     @Test
     public void shouldChangeNextRadioStationWhenValueOfTopBorder() {
-        Radio radio = new Radio();
         radio.setCurrentRadioStation(9);
 
         radio.next();
@@ -94,7 +107,6 @@ public class RadioTest {
 
     @Test
     public void shouldChangePrevRadioStationWhenValueMiddle() {
-        Radio radio = new Radio();
         radio.setCurrentRadioStation(5);
 
         radio.prev();
@@ -107,7 +119,6 @@ public class RadioTest {
 
     @Test
     public void shouldChangePrevRadioStationWhenValueOfBottomBorder() {
-        Radio radio = new Radio();
         radio.setCurrentRadioStation(0);
 
         radio.prev();
@@ -120,7 +131,6 @@ public class RadioTest {
 
     @Test
     public void volumeMustBeInRangeWhenValueMiddle() {
-        Radio radio = new Radio();
 
         radio.setCurrentVolume(5);
 
@@ -132,9 +142,8 @@ public class RadioTest {
 
     @Test
     public void volumeMustBeInRangeWhenValueAboveBorder() {
-        Radio radio = new Radio();
 
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(101);
 
         int expected = 0;
         int actual = radio.getCurrentVolume();
@@ -144,7 +153,6 @@ public class RadioTest {
 
     @Test
     public void volumeMustBeInRangeWhenValueUnderBorder() {
-        Radio radio = new Radio();
 
         radio.setCurrentVolume(-1);
 
@@ -156,11 +164,10 @@ public class RadioTest {
 
     @Test
     public void volumeMustBeInRangeWhenValueTopBorder() {
-        Radio radio = new Radio();
 
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(100);
 
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
 
         assertEquals(expected, actual);
@@ -168,7 +175,6 @@ public class RadioTest {
 
     @Test
     public void volumeMustBeInRangeWhenValueBottomBorder() {
-        Radio radio = new Radio();
 
         radio.setCurrentVolume(0);
 
@@ -180,7 +186,6 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseVolumeWhenValueMiddle() {
-        Radio radio = new Radio();
         radio.setCurrentVolume(5);
 
         radio.increaseVolume();
@@ -193,12 +198,11 @@ public class RadioTest {
 
     @Test
     public void shouldNotIncreaseVolumeWhenValueTopBorder() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(100);
 
         radio.increaseVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
 
         assertEquals(expected, actual);
@@ -206,7 +210,6 @@ public class RadioTest {
 
     @Test
     public void shouldDecreaseVolumeWhenValueMiddle() {
-        Radio radio = new Radio();
         radio.setCurrentVolume(5);
 
         radio.decreaseVolume();
@@ -219,7 +222,6 @@ public class RadioTest {
 
     @Test
     public void shouldNotDecreaseVolumeWhenValueBottomBorder() {
-        Radio radio = new Radio();
         radio.setCurrentVolume(0);
 
         radio.decreaseVolume();
