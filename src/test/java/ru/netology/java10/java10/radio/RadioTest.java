@@ -64,19 +64,22 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldInitFieldCountRadioStationWhenConstructorWithoutParameter() {
-        Radio radio = new Radio();
+    public void shouldInitFieldWhenConstructorRadioWithoutParameter() {
 
         assertEquals(10, radio.getCountRadioStation());
+        assertEquals(9, radio.getMaxRadioStation());
+        assertEquals(0, radio.getMinRadioStation());
+        assertEquals(100, radio.getMaxVolume());
+        assertEquals(0, radio.getMinVolume());
     }
 
     @Test
-    public void shouldInitFieldCountRadioStationWhenConstructorWithParameter() {
+    public void shouldInitFieldWhenConstructorRadioWithParameter() {
         Radio radio = new Radio(15);
 
         assertEquals(15, radio.getCountRadioStation());
+        assertEquals(14, radio.getMaxRadioStation());
     }
-
 
     @Test
     public void shouldChangeNextRadioStationWhenValueMiddle()  {
